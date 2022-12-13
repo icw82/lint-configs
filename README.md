@@ -5,7 +5,7 @@
 В директории, где расположены проекты:
 
 ```shell
-git clone git@github.com:icw82/kk-lint-configs.git
+git@github.com:icw82/lint-configs.git
 ```
 
 В этой же директории создать файлы:
@@ -19,21 +19,21 @@ touch .stylelintrc.yml
 
 ```yml
 extends:
-  - ./kk-lint-configs/eslint/base.yml
+  - ./lint-configs/eslint/base.yml
 
 overrides:
   - files:
     - '**/*.ts'
     - '**/*.tsx'
     extends:
-      - ./kk-lint-configs/eslint/ts.yml
+      - ./lint-configs/eslint/ts.yml
 ```
 
 Заполнить содержимое ```.stylelintrc.yml```:
 
 ```yml
 extends:
-  - ./kk-lint-configs/stylelint/base.yml
+  - ./lint-configs/stylelint/base.yml
 ```
 
 ## Использование

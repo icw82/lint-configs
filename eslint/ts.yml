@@ -75,6 +75,9 @@ rules:
       arrowParameter: true
       memberVariableDeclaration: true
 
+  '@typescript-eslint/no-empty-function':
+    - off
+
   '@typescript-eslint/explicit-function-return-type':
     - error
     - allowTypedFunctionExpressions: false
