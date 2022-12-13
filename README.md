@@ -5,7 +5,7 @@
 В директории, где расположены проекты:
 
 ```shell
-git@github.com:icw82/lint-configs.git
+git clone git@github.com:icw82/lint-configs.git
 ```
 
 В этой же директории создать файлы:
