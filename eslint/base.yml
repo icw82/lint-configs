@@ -65,6 +65,14 @@ rules:
     - error
     - never
 
+  id-denylist:
+    - error
+    - boolean
+    - number
+    - string
+    - undefined
+
+
   brace-style:
     - error
     - 1tbs
@@ -187,6 +195,8 @@ rules:
 
   no-throw-literal: error
 
+  spaced-comment: warn
+
   jsdoc/check-alignment:
     - error
 
@@ -195,7 +205,8 @@ rules:
   #   - excludeTags:
   #     - 'example'
 
-  spaced-comment: warn
+  jsdoc/check-access:
+    - error
 
   jsdoc/check-param-names:
     - error
@@ -205,6 +216,9 @@ rules:
 
   # jsdoc/require-examples:
   #   - warn
+
+  jsdoc/check-tag-names:
+    - warn
 
   jsdoc/require-jsdoc:
     - warn
@@ -218,3 +232,6 @@ rules:
         FunctionExpression: true
         MethodDefinition: true
       checkConstructors: false
+
+  jsdoc/no-types:
+    - error
