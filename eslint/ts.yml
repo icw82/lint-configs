@@ -72,7 +72,7 @@ rules:
   '@typescript-eslint/typedef':
     - error
     - parameter: true
-      arrowParameter: true
+      arrowParameter: false
       memberVariableDeclaration: true
 
   '@typescript-eslint/no-empty-function':
@@ -81,7 +81,7 @@ rules:
   '@typescript-eslint/explicit-function-return-type':
     - error
     - allowTypedFunctionExpressions: false
-    #   allowExpressions: false
+      allowExpressions: true
     #   allowHigherOrderFunctions: true
     #   allowDirectConstAssertionInArrowFunctions: false
     #   allowConciseArrowFunctionExpressionsStartingWithVoid: true
