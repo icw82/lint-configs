@@ -1,0 +1,39 @@
+{
+    "env": {
+        "browser": true,
+        "amd": true
+    },
+    "plugins": [
+        "es5",
+        "amd"
+    ],
+    "extends": [
+        "plugin:es5/no-es2015"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2015
+    },
+    "rules": {
+        "max-params": [
+            "off"
+        ],
+        "indent": [
+            "off"
+        ],
+        "prefer-arrow-callback": [
+            "off"
+        ],
+        "prefer-object-spread": [
+            "off"
+        ],
+        "no-undef": [
+            "off"
+        ],
+        "object-shorthand": [
+            "off"
+        ],
+        "es5/no-arrow-functions": [
+            "error"
+        ]
+    }
+}

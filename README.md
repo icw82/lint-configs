@@ -11,29 +11,81 @@ git clone git@github.com:icw82/lint-configs.git
 В этой же директории создать файлы:
 
 ```shell
-touch .eslintrc.yml
-touch .stylelintrc.yml
+touch .eslintrc.json
+touch .stylelintrc.json
 ```
 
-Заполнить содержимое ```.eslintrc.yml```:
+Заполнить содержимое ```.eslintrc.json```:
 
-```yml
-extends:
-  - ./lint-configs/eslint/base.yml
+```json
+{
+    "extends": [
+        "./lint-configs/eslint/base.json"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "**/*.ts",
+                "**/*.tsx"
+            ],
+            "extends": [
+                "./lint-configs/eslint/ts.json"
+            ],
+            "rules": {
+                "@typescript-eslint/comma-dangle": [
+                    "error",
+                    "never"
+                ]
+            }
+        },
+        {
+            "files": "**/*.js",
+            "excludedFiles": "*.routes.js",
+            "extends": [
+                "./lint-configs/eslint/js.json"
+            ]
+        },
+        {
+            "files": "**/*.routes.js",
+            "extends": [
+                "./lint-configs/eslint/es.json"
+            ]
+        }
+    ],
+    "rules": {
+        "no-console": [
+            "error"
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ]
+    }
+}```
 
-overrides:
-  - files:
-    - '**/*.ts'
-    - '**/*.tsx'
-    extends:
-      - ./lint-configs/eslint/ts.yml
-```
+Тут можно переопределить правила. Например, для того чтобы отобразить
+некоторые фашистские корпоративные правила.
 
-Заполнить содержимое ```.stylelintrc.yml```:
+Заполнить содержимое ```.stylelintrc.json```:
 
-```yml
-extends:
-  - ./lint-configs/stylelint/base.yml
+```json
+{
+    "extends": [
+        "./lint-configs/stylelint/base.json"
+    ],
+    "rules": {
+        "comment-empty-line-before": "never",
+        "selector-max-type": 0
+    }
+}
 ```
 
 ## Использование
+
+<!--
+NOTE:
+В VS Code нужно выключить родную валидацию:
+"css.validate": false,
+"less.validate": false,
+"scss.validate": false
+-->

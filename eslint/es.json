@@ -1,0 +1,17 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true,
+        "amd": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ]
+    }
+}
