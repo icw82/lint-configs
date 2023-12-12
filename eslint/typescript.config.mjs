@@ -21,7 +21,7 @@ const typescript = {
     rules: {
         'comma-dangle': 0,
         '@typescript-eslint/comma-dangle': [
-            'error',
+            1,
             {
                 arrays: 'always-multiline',
                 enums: 'always-multiline',

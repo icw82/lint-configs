@@ -1,5 +1,18 @@
+import jest from 'eslint-plugin-jest';
+import globals from 'globals';
+
+
 const base = {
+    plugins: {
+        jest,
+    },
+    languageOptions: {
+        globals: {
+            ...globals.jest,
+        }
+    },
     rules: {
+        ...jest.configs.recommended.rules,
 
         // Затратная операция
         'no-unused-vars': 0,
@@ -77,8 +90,7 @@ const base = {
         'semi-spacing': 'error',
         'keyword-spacing': 'error',
         'comma-spacing': 'error',
-        'comma-dangle': [
-            'error',
+        'comma-dangle': [ 1,
             {
                 arrays: 'always-multiline',
                 exports: 'always-multiline',
