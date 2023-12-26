@@ -29,6 +29,39 @@ const rules = {
     //     4,
     // ],
 
+    '@typescript-eslint/no-non-null-assertion': 'error',
+    '@typescript-eslint/naming-convention': [
+        'error', {
+            selector: 'import',
+            format: ['camelCase', 'PascalCase'],
+        }, {
+            selector: 'variable',
+            format: ['camelCase', 'UPPER_CASE'],
+            leadingUnderscore: 'allow',
+        }, {
+            selector: 'typeLike',
+            format: ['PascalCase'],
+        }, {
+        //     selector: 'property',
+        //     format: ['camelCase', 'PascalCase'],
+        // }, {
+            selector: 'memberLike',
+            modifiers: ['private'],
+            format: ['camelCase'],
+            leadingUnderscore: 'require'
+        }, {
+            selector: 'memberLike',
+            modifiers: ['protected'],
+            format: ['camelCase'],
+            leadingUnderscore: 'require'
+        },
+        // {
+        //     selector: 'default',
+        //     format: ['camelCase'],
+        //     leadingUnderscore: 'allow',
+        // }
+    ],
+
     '@typescript-eslint/explicit-member-accessibility': [
         'error',
         {
