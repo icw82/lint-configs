@@ -21,9 +21,7 @@ const rules = {
     // 'no-unused-vars': 0,
     // '@typescript-eslint/no-unused-vars': 2,
 
-    'arrow-parens': 2,
-
-    indent: 0,
+    // indent: 0,
     // '@typescript-eslint/indent': [
     //     'error',
     //     4,
@@ -32,29 +30,70 @@ const rules = {
     '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/naming-convention': [
         'error', {
-            selector: 'import',
-            format: ['camelCase', 'PascalCase'],
-        }, {
+        //     selector: 'import',
+        //     format: ['camelCase', 'PascalCase'],
+        // }, {
+        //     selector: 'variableLike',
+        //     format: ['strictCamelCase', 'StrictPascalCase', 'UPPER_CASE' ],
+        //     // leadingUnderscore: 'allow',
+        // }, {
             selector: 'variable',
             format: ['camelCase', 'UPPER_CASE'],
             leadingUnderscore: 'allow',
         }, {
-            selector: 'typeLike',
-            format: ['PascalCase'],
+            selector: 'variable',
+            modifiers: ['const'],
+            types: ['function'],
+            format: ['strictCamelCase', 'StrictPascalCase'],
+            // leadingUnderscore: 'allow',
         }, {
-        //     selector: 'property',
-        //     format: ['camelCase', 'PascalCase'],
+            selector: 'variable',
+            modifiers: ['exported'],
+            types: ['function'],
+            format: ['strictCamelCase', 'StrictPascalCase'],
+            // leadingUnderscore: 'allow',
+        }, {
+            selector: 'variable',
+            modifiers: ['const'],
+            types: ['array', 'boolean', 'number', 'string'],
+            format: ['strictCamelCase', 'UPPER_CASE'],
+            // leadingUnderscore: 'allow',
         // }, {
+        //     selector: 'variable',
+        //     types: ['array', 'number', 'string'],
+        //     format: null,
+        //     custom: {
+        //         regex: '^(?!is|should|has|can|did|will)[a-z]+[A-Z]',
+        //         match: true,
+        //     }
+        }, {
+            selector: 'function',
+            format: ['strictCamelCase', 'StrictPascalCase'],
+        }, {
+            selector: 'typeLike',
+            format: ['StrictPascalCase'],
+        }, {
+            selector: 'memberLike',
+            format: ['strictCamelCase']
+        }, {
             selector: 'memberLike',
             modifiers: ['private'],
-            format: ['camelCase'],
+            format: ['strictCamelCase'],
             leadingUnderscore: 'require'
         }, {
             selector: 'memberLike',
             modifiers: ['protected'],
-            format: ['camelCase'],
+            format: ['strictCamelCase'],
             leadingUnderscore: 'require'
-        },
+        }, {
+            selector: 'typeAlias',
+            format: ['StrictPascalCase'],
+            prefix: ['T'],
+        }, {
+            selector: 'interface',
+            format: ['StrictPascalCase'],
+            prefix: ['I'],
+        }
         // {
         //     selector: 'default',
         //     format: ['camelCase'],
@@ -83,9 +122,7 @@ const rules = {
             },
         },
     ],
-    '@typescript-eslint/semi': [
-        'error',
-    ],
+    // '@typescript-eslint/semi': [ 'error' ],
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unsafe-assignment': [

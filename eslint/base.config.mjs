@@ -1,10 +1,13 @@
-import jest from 'eslint-plugin-jest';
 import globals from 'globals';
+
+import jest from 'eslint-plugin-jest';
+import stylistic from '@stylistic/eslint-plugin'
 
 
 const base = {
     plugins: {
         jest,
+        '@stylistic': stylistic,
     },
     languageOptions: {
         globals: {
@@ -14,6 +17,33 @@ const base = {
     rules: {
         ...jest.configs.recommended.rules,
 
+        'no-nested-ternary': 2,
+        'no-unneeded-ternary': 2,
+        'one-var': [ 'error', 'never' ],
+        'operator-assignment': [ 'warn', 'always' ],
+        'max-depth': [ 'warn', 4 ],
+        'max-lines': [ 'warn', { max: 1000, skipComments: true } ],
+        'max-lines-per-function': [ 'error', { max: 20, skipComments: true } ],
+        'max-nested-callbacks': [ 'warn', 3 ],
+        'max-params': [ 'error', 3 ],
+        'complexity': [ 'warn', { max: 5 } ],
+        'no-else-return': [ 'error', { allowElseIf: false } ],
+        'no-magic-numbers': [
+            'warn',
+            {
+              'detectObjects': false,
+              'enforceConst': true,
+              'ignore': [-1, 0, 1, 2, 10, 100],
+              'ignoreArrayIndexes': true
+            }
+        ],
+
+        'arrow-parens': 2,
+
+        '@stylistic/indent': ['error', 4, { SwitchCase: 1 }],
+        '@stylistic/semi': ['error', 'always' ],
+        '@stylistic/operator-linebreak': ['error', 'after'],
+
         // Затратная операция
         'no-unused-vars': 0,
 
@@ -21,13 +51,7 @@ const base = {
         'key-spacing': 2,
         'no-trailing-spaces': 'error',
         'space-infix-ops': 'error',
-        indent: [
-            'error',
-            4,
-            {
-                SwitchCase: 1,
-            },
-        ],
+
         'no-multiple-empty-lines': [
             'error',
             {
@@ -40,30 +64,6 @@ const base = {
             {
                 code: 100,
             },
-        ],
-        'max-lines': [
-            'warn',
-            {
-                max: 1000,
-                skipBlankLines: true,
-                skipComments: true,
-            },
-        ],
-        'max-params': [
-            'error',
-            4,
-        ],
-        'max-nested-callbacks': [
-            'warn',
-            3,
-        ],
-        'max-depth': [
-            'warn',
-            4,
-        ],
-        'one-var': [
-            'error',
-            'never',
         ],
         'id-denylist': [
             'error',
@@ -156,10 +156,6 @@ const base = {
             },
         ],
         'no-useless-concat': 'error',
-        semi: [
-            'error',
-            'always',
-        ],
         'space-before-blocks': 'error',
         'space-before-function-paren': [
             'error',
@@ -174,12 +170,6 @@ const base = {
             'smart',
         ],
         'no-undefined': 'error',
-        'no-else-return': [
-            'error',
-            {
-                allowElseIf: false,
-            }
-        ],
         'no-unused-expressions': 'error',
         'no-mixed-operators': 'error',
         'block-scoped-var': 'error',
