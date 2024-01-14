@@ -76,6 +76,12 @@ const rules = {
             selector: 'memberLike',
             format: ['strictCamelCase']
         }, {
+            selector: 'enum',
+            format: ['StrictPascalCase', 'UPPER_CASE'],
+        }, {
+            selector: 'enumMember',
+            format: ['StrictPascalCase', 'UPPER_CASE'],
+        }, {
             selector: 'memberLike',
             modifiers: ['private'],
             format: ['strictCamelCase'],
@@ -86,9 +92,16 @@ const rules = {
             format: ['strictCamelCase'],
             leadingUnderscore: 'require'
         }, {
+            selector: 'objectLiteralProperty',
+            format: ['strictCamelCase', 'UPPER_CASE']
+        }, {
             selector: 'typeAlias',
             format: ['StrictPascalCase'],
-            prefix: ['T'],
+            prefix: ['I', 'T'],
+            filter: {
+                regex: "^[IT][A-Z]",
+                match: true,
+            }
         }, {
             selector: 'interface',
             format: ['StrictPascalCase'],

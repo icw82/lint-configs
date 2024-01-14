@@ -17,16 +17,16 @@ const base = {
     rules: {
         ...jest.configs.recommended.rules,
 
-        'no-nested-ternary': 2,
-        'no-unneeded-ternary': 2,
+        'no-nested-ternary': 'error',
+        'no-unneeded-ternary': 'error',
         'one-var': [ 'error', 'never' ],
         'operator-assignment': [ 'warn', 'always' ],
         'max-depth': [ 'warn', 4 ],
         'max-lines': [ 'warn', { max: 1000, skipComments: true } ],
-        'max-lines-per-function': [ 'error', { max: 20, skipComments: true } ],
+        // 'max-lines-per-function': [ 'warn', { max: 50, skipComments: true } ],
         'max-nested-callbacks': [ 'warn', 3 ],
         'max-params': [ 'error', 3 ],
-        'complexity': [ 'warn', { max: 5 } ],
+        'complexity': [ 'warn', { max: 10 } ],
         'no-else-return': [ 'error', { allowElseIf: false } ],
         'no-magic-numbers': [
             'warn',
@@ -37,12 +37,20 @@ const base = {
               'ignoreArrayIndexes': true
             }
         ],
-
         'arrow-parens': 2,
+        'prefer-const': 'error',
 
-        '@stylistic/indent': ['error', 4, { SwitchCase: 1 }],
+        '@stylistic/indent': ['error', 4, {
+            SwitchCase: 1,
+            flatTernaryExpressions: false,
+            offsetTernaryExpressions: false,
+        }],
         '@stylistic/semi': ['error', 'always' ],
-        '@stylistic/operator-linebreak': ['error', 'after'],
+        '@stylistic/operator-linebreak': ['error', 'after', {
+            overrides: { '?': 'before', ':': 'before' }
+        }],
+
+        '@stylistic/multiline-ternary': ['error', 'always-multiline'],
 
         // Затратная операция
         'no-unused-vars': 0,
