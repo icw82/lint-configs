@@ -113,7 +113,7 @@ const rules = {
         //     leadingUnderscore: 'allow',
         // }
     ],
-
+    '@typescript-eslint/no-floating-promises': 'error',
     '@typescript-eslint/explicit-member-accessibility': [
         'error',
         {
