@@ -11,6 +11,7 @@ const base = {
     },
     languageOptions: {
         globals: {
+            ...globals.browser,
             ...globals.jest,
         }
     },
